@@ -1,0 +1,13 @@
+{
+  "name": "StockSense",
+  "short_name": "StockSense",
+  "description": "สัมผัสตลาด ก่อนที่ตลาดจะบอก",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#060A0F",
+  "theme_color": "#0C447C",
+  "orientation": "portrait",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}

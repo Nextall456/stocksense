@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-bg: #060A0F;
+  --color-surface: #0D1117;
+  --color-border: rgba(255, 255, 255, 0.06);
+  --color-text: #E8EAF6;
+  --color-text-muted: #78909C;
+  --color-text-dim: #546e7a;
+  --color-brand: #185FA5;
+  --color-brand-light: #378ADD;
+  --color-brand-dark: #0C447C;
+  --color-profit: #1D9E75;
+  --color-loss: #E24B4A;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: 'Sarabun', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: #1a2332;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2a3442;
+}
+
+.font-mono {
+  font-family: 'Space Mono', ui-monospace, monospace;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #185FA5 0%, #378ADD 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.pulse-dot {
+  animation: pulse-dot 2s infinite;
+}
