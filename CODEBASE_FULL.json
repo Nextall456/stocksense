@@ -1,0 +1,108 @@
+{
+  "project": "StockSense",
+  "version": "0.1.0",
+  "description": "Stock Scanner Pro - โปรแกรมสแกนหุ้นพร้อม AI Verdict",
+  "files": {
+    "package.json": {
+      "name": "stocksense",
+      "version": "0.1.0",
+      "private": true,
+      "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint": "next lint"
+      },
+      "dependencies": {
+        "@supabase/supabase-js": "^2.39.0",
+        "@supabase/ssr": "^2.39.0",
+        "@line/liff": "^2.2.0",
+        "lucide-react": "^0.303.0",
+        "zod": "^3.22.4",
+        "next": "14.1.0",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "tailwindcss": "^3.4.0"
+      },
+      "devDependencies": {
+        "@types/node": "^20.10.0",
+        "@types/react": "^18.2.0",
+        "@types/react-dom": "^18.2.0",
+        "typescript": "^5.3.0"
+      }
+    },
+    "next.config.js": "module.exports = { experimental: { appDir: true }, images: { domains: ['*.supabase.co', 'fonts.gstatic.com', 'images.unsplash.com'] } }",
+    "tsconfig.json": {
+      "compilerOptions": {
+        "target": "es5",
+        "module": "esnext",
+        "lib": ["dom", "dom.iterable", "esnext"],
+        "allowJs": true,
+        "skipLibCheck": true,
+        "strict": true,
+        "forceConsistentCasingInFileNames": true,
+        "noEmit": true,
+        "esModuleInterop": true,
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "jsx": "preserve",
+        "incremental": true
+      },
+      "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+      "exclude": ["node_modules"]
+    },
+    "tailwind.config.ts": {
+      "content": ["./pages/**/*.{js,ts,jsx,tsx,mdx}", "./components/**/*.{js,ts,jsx,tsx,mdx}", "./app/**/*.{js,ts,jsx,tsx,mdx}"],
+      "theme": { "extend": { "colors": { "primary": { "50": "#faf5ff", "100": "#f3e8ff", "200": "#e0c4ff", "300": "#c794ff", "400": "#af65ff", "500": "#9b4de6", "600": "#873ab8", "700": "#73308d", "800": "#5f286e", "900": "#4a1f55" } } } },
+      "plugins": []
+    },
+    "app/layout.tsx": {
+      "metadata": {
+        "title": "StockSense - หุ้นเด็ดวันนี้ + นาฬิกานับถอยหลัง",
+        "description": "แสดงหุ้นเด็ดวันนี้พร้อม AI Verdict และเครื่องมือวิเคราะห์หุ้น"
+      }
+    },
+    "app/page.tsx": {
+      "mockStocks": [
+        { "symbol": "PTT", "name": "PTT Public Company", "price": 15.80, "changePct": 2.3, "grade": "A+", "gradeScore": 8, "verdict": "STRONG_BUY", "winRate": 92, "support": 15.01, "target": 17.69, "upside": 12.0 },
+        { "symbol": "ABC", "name": "ABC Company", "price": 45.50, "changePct": 1.8, "grade": "A", "gradeScore": 6, "verdict": "BUY", "winRate": 78, "support": 43.22, "target": 51.06, "upside": 12.0 },
+        { "symbol": "XYZ", "name": "XYZ Corporation", "price": 120.25, "changePct": -0.5, "grade": "B+", "gradeScore": 4, "verdict": "WAIT", "winRate": 55, "support": 114.23, "target": 134.68, "upside": 16.2 }
+      ]
+    },
+    "components/GradeBadge.tsx": {
+      "props": ["grade", "score"],
+      "grades": ["A+", "A", "B+", "B", "C"]
+    },
+    "components/VerdictPill.tsx": {
+      "props": ["verdict"],
+      "verdicts": ["STRONG_BUY", "BUY", "WAIT", "AVOID"]
+    },
+    "lib/stocks/analyzer.ts": {
+      "functions": ["analyzeStock"],
+      "verdicts": ["STRONG_BUY", "BUY", "WAIT", "AVOID"],
+      "grades": ["A+", "A", "B+", "B", "C"]
+    },
+    "lib/simulator.ts": {
+      "functions": ["calculateSimulator"],
+      "investmentOptions": [5000, 10000, 50000, 100000]
+    },
+    "lib/risk-shield.ts": {
+      "functions": ["calculateRiskShield", "getRiskLevel"],
+      "riskLevels": ["HIGH", "MEDIUM", "LOW"]
+    },
+    "lib/whale-tracker.ts": {
+      "functions": ["detectWhaleActivity", "formatWhaleAlert"]
+    },
+    "lib/smc.ts": {
+      "functions": ["detectBOS", "detectCHoCH", "detectLiquidity", "analyzeSMC"]
+    },
+    "lib/news-pulse.ts": {
+      "functions": ["analyzeNewsSentiment", "filterNewsByImpact", "getNewsForSymbol"],
+      "sentiments": ["BULL", "BEAR", "NEUTRAL"]
+    },
+    "landing.html": {
+      "features": ["Daily Pick", "Countdown Timer", "Waitlist Form", "Features Preview"]
+    }
+  }
+}
