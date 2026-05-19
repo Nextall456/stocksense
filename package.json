@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.39.0",
-    "@supabase/ssr": "^2.39.0",
+    "@supabase/ssr": "^0.8.0",
     "@line/liff": "^2.2.0",
     "lucide-react": "^0.303.0",
     "zod": "^3.22.4",
